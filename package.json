@@ -1,0 +1,22 @@
+{
+  "name": "TapNotes",
+  "version": "1.0.0",
+  "description": "Create your note's in organised",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "note",
+    "time",
+    "track",
+    "organised",
+    "view"
+  ],
+  "author": "Tapnotes-Dev",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}
