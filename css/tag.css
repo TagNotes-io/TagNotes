@@ -18,6 +18,21 @@ main {
           justify-content: center;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
+h2 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 5px;
+  color: white;
+}
+h2 span {
+  border: 3px solid white;
+  padding:2px 258px 3px 23px;
+  border-radius: 6px;
+  font-weight: 300;
+}
+
 
 h1 {
   margin-bottom: 20px;
