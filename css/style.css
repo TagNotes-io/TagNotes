@@ -155,17 +155,17 @@ hr {
    float: left;
    height: auto;
    margin-right: 8px;
-   height: 250px;
-    overflow-y: scroll;
-    width: 300px;
+   height: 275px;
+   width: 300px;
 }
 .right-div {
    float: left;
    margin-left: 1px;
-}​
+   padding: 11px;
+}
 
 .container {
- margin: 50px auto;
+ margin: 25px auto;
  width: 380px;
 }
 
@@ -185,7 +185,7 @@ hr {
 .tags li {
  position: relative;
  float: left;
- margin: 0 0 8px 12px;
+ margin:1px 6px 8px 7px;
 }
 
 .tags li:active {
