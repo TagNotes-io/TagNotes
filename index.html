@@ -15,6 +15,9 @@
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel='stylesheet prefetch' href='https://unpkg.com/react-quill@v1.0.0-beta-4/dist/quill.snow.css'>
+
+         <link rel="stylesheet" href="css/rich.css">
 
   <script src="js/index.js"></script>
   <link rel="stylesheet" href="css/style.css">
@@ -26,8 +29,40 @@
 	<form>
 <h1><span>Tag</span> Note's</h1>
 <div class="left-div">
+  
+    <div class="notes-wrapper">
+	<div class="saver-wrap" contenteditable="false">
+		<div class="notes-dot" contenteditable="false"></div>
+		<div class="rest" contenteditable="false"></div>
+	</div>
+	<div class="title" style ="padding: 6px 5px 11px 0px;font-size:x-large;" contenteditable="true" onpaste="OnPaste_StripFormatting(this, event);">
+		note title
+	</div>
+    <hr />
+    <div class="app" style="margin-left: -25px;height: 308px;margin-right: -56px;margin-bottom: -11px;">
+    </div>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js'></script>
+      <script src='https://unpkg.com/react-quill@v1.0.0-beta-4/dist/react-quill.js'></script>
+
+          <script src="js/rich.js"></script>
+    <!--<div class="content" contenteditable="true" onpaste="OnPaste_StripFormatting(this, event);">
+        Start typing...
+    </div>-->
+	<div class="line"></div>
+	</div>
+<p>Separate your tags with a comma</p>
+<div class="tags-input">
+
+<span id="datetime" contenteditable="false"></span>
+</div>
+
+</div>
+</div>
+
+<div class="right-div">
+   <img src="imgs/tag1.jpg" height="35px" style="border-radius:50px 0px;margin:9px 104px;border:3px solid #71ccd5"/>
     <div class="container">
-        <h2><span># Tags</span></h2>
     <ul class="tags">
       <li><a href="#">Interface <span>4</span></a></li>
       <li><a href="#">Icon <span>8</span></a></li>
@@ -49,33 +84,57 @@
       <li><a href="#">Desktop <span>160</span></a></li>
       <li><a href="#">Share <span>20</span></a></li>
     </ul>
-  </div>
-</div>
-<div class="right-div">
-  <div class="notes-wrapper">
-	<div class="saver-wrap" contenteditable="false">
-		<div class="notes-dot" contenteditable="false"></div>
-		<div class="rest" contenteditable="false"></div>
-	</div>
-	<div class="title" contenteditable="true" onpaste="OnPaste_StripFormatting(this, event);">
-		note title
-	</div>
-	<hr />
-	<div class="content" contenteditable="true" onpaste="OnPaste_StripFormatting(this, event);">
-	Start typing...
-	</div>
-	<div class="line"></div>
-	<!--<div class="comment"></div>
-	<input type="file" onchange="previewFile()" id="selectedFile" style="display: none;" />
-	<div class="getImg" onclick="document.getElementById('selectedFile').click();">
-		<i class="material-icons">insert_photo</i>-->
-	</div>
-<p>Separate your tags with a comma</p>
-<div class="tags-input">
 
-<span id="datetime" contenteditable="false"></span>
-</div>
-</div>
+    <div class="widget">
+        <ol class="widget-list" id="managers">
+            <li>
+                <a class="widget-list-link">
+                    Note #1 <span>Tag: Credentials , Important</span>
+                </a>
+            </li>
+            <li>
+                <a class="widget-list-link">
+                    Note #2 <span>Tag: Misc, Test</span>
+                </a>
+            </li>
+            <li>
+                <a class="widget-list-link">
+                    Note #3 <span>Tag: Credentials , Important</span>
+                </a>
+            </li>
+        </ol>
+
+        <ol class="widget-list" id="designers">
+            <li>
+                <a class="widget-list-link">
+                   Note #1 <span>Tag: Credentials , Important</span>
+                </a>
+            </li>
+            <li>
+                <a class="widget-list-link">
+                    Note #2 <span>Tag: Credentials , Important</span>
+                </a>
+            </li>
+            <li>
+                <a class="widget-list-link">
+                    Note #3 <span>Tag: Bank, Personal</span>
+                </a>
+            </li>
+        </ol>
+        <ul class="widget-tabs">
+            <li class="widget-tab">
+                <a href="#managers" class="widget-tab-link">Latest's</a>
+                <!-- Omitting the end tag is valid HTML and removes the space in-between inline blocks. -->
+                <li class="widget-tab">
+                    <a href="#designers" class="widget-tab-link">Trending's</a>
+                    </ul>
+                </div>
+
+
+
+
+
+  </div>
 <script>
 var dt = new Date();
 document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()+1).slice(-2)) +":"+ (("0"+dt.getMinutes()+1).slice(-2));
@@ -88,5 +147,27 @@ document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-
 
 </form>
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <div id="notebooks" ng-app="notebooks" ng-controller="NotebookListCtrl">
+        <input type="text" id="query" ng-model="query"/>
+        <select ng-model="orderList">
+            <option value="name">By name</option>
+            <option value="-age">Newest</option>
+            <option value="age">Oldest</option>
+        </select>
+        <ul id="notebook_ul">
+            <li id="notebook_li" ng-repeat="notebook in notebooks | filter:query | orderBy: orderList">
+                name: {{notebook.name}}<br/>
+                procesor: {{notebook.procesor}}<br/>
+                <div class="right top">{{notebook.age}}</div>
+            </li>
+        </ul>
+        <span>Number of notebooks: {{notebooks.length}}</span>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'></script>
+    <script src='http://pxtrack.herokuapp.com/embed/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxLCJ0aXRsZSI6ImNvZGVwZW4uaW8gaGl0cyIsImlhdCI6MTQ1ODYwMzAzNX0.iveKvifh0UE3q-1ym6_nvyQ_4cJu_ewGPhrt5eTCicQ/pxtrack.js'></script>
+
+        <script src="js/search.js"></script>
 </body>
 </html>
