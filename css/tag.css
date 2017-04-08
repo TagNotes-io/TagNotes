@@ -60,6 +60,17 @@ p {
   letter-spacing: 1px;
 }
 
+p23 {
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left:250px;
+  color: #71ccd5;
+  width:200px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .tags-input {
   align-items: center;
     border: 3px solid #71ccd5;
@@ -68,9 +79,9 @@ p {
     display: flex;
     font-size: 14px;
     height: 40px;
-    margin: 8px 0px 0px 33px;
+    margin: 8px 0px 0px 8px;
     overflow: hidden;
-    width: 635px;
+    width: 705px;
 }
 .tags-input span {
   background: #71ccd5;
